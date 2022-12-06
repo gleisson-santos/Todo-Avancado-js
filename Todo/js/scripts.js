@@ -30,8 +30,8 @@ const saveTodo = (text) => {
 
     const deletBtn = document.createElement("button");
     deletBtn.classList.add("remove-todo");
-    deletBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>'
-    todo.appendChild(deletBtn)
+    deletBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    todo.appendChild(deletBtn);
     
 
     //Adicionar todo o todo a lista  da Div
