@@ -1,164 +1,169 @@
- Todo/* Geral */
+Todo/* Geral */
 * {
-    padding: 0;
-    margin: 0;
-    font-family: Helvetica;
-    color: #333;
-    /* Adaptação dos inputs ao PAI */
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica;
+  color: #333;
+  /* Adaptação dos inputs ao PAI */
+  box-sizing: border-box;
+}
+
+/* //ajustar imagem na tela de acordo com os itens inseridos */
+html {
+  height: 100vh;
 }
 
 body {
-    background-image: url("../image/bg.jpg");
-    background-position: center;
-    /* Adaptação da imagem a tela */
-    background-size: cover;
+  background-image: url('../image/bg.jpg');
+  background-position: center;
+  /* Adaptação da imagem a tela */
+  background-size: cover;
 }
 
 button {
-    background-color: #fdfdfd;
-    color: #102f5e;
-    border: 2px solid#102f5e;
-    padding: .3rem .6rem;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
+  background-color: #fdfdfd;
+  color: #102f5e;
+  border: 2px solid#102f5e;
+  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
 }
 
 button:hover {
-    background-color: #102f5e;
-    color: #fff;
+  background-color: #102f5e;
+  color: #fff;
 }
 
 button:hover > i {
-    color: #fff;
+  color: #fff;
 }
 
 button i {
-    color: #102f5e;
-    font-weight: bold;
-    /*  Desabilitar eventos do icone */
-    pointer-events: none;
+  color: #102f5e;
+  font-weight: bold;
+  /*  Desabilitar eventos do icone */
+  pointer-events: none;
 }
 
-input, select {
-    padding: .25rem .5rem;
+input,
+select {
+  padding: 0.25rem 0.5rem;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 /*  Todo header */
 .todo-container {
-    max-width: 450px;
-    margin: 3rem auto;
-    background-color: #fdfdfd;
-    padding: 1.5rem;
-    border-radius: 15px;
+  max-width: 450px;
+  margin: 3rem auto;
+  background-color: #fdfdfd;
+  padding: 1.5rem;
+  border-radius: 15px;
 }
 
 .todo-container header {
-    text-align: center;
-    padding: 0 1rem 1rem;
-    border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 0 1rem 1rem;
+  border-bottom: 1px solid #ccc;
 }
 
 /* Todo Form */
 
-#todo-form, #edit-form {
-    padding: 1rem;
-    border-bottom: 1px solid #ccc;
+#todo-form,
+#edit-form {
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
 }
 
 #todo-form p,
 #edit-form p {
-    margin-bottom: .5rem;
-    font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 .form-control {
-    display: flex;
+  display: flex;
 }
 
 .form-control input {
-    margin-right: 0.3rem;
+  margin-right: 0.3rem;
 }
 
 #cancel-edit-btn {
-    margin-top: 1rem;
-
+  margin-top: 1rem;
 }
 
 /*  Todo toolbar */
 #toolbar {
-    padding: 1rem;
-    border-bottom: 1px solid #ccc;
-    display: flex;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+  display: flex;
 }
 
 #toolbar h4 {
-    margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 #search {
-    border-right: 1px solid #ddd;
-    padding-right: 1rem;
-    margin-right: 1rem;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
+  border-right: 1px solid #ddd;
+  padding-right: 1rem;
+  margin-right: 1rem;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 
 #search form {
-    display: flex;
+  display: flex;
 }
 
 #search input {
-    width: 100%;
-    margin-right: .3rem ;
+  width: 100%;
+  margin-right: 0.3rem;
 }
 
 #filter {
-    width: 35%;
-    display: flex;
-    flex-direction: column;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
 }
 
 #filter select {
-    flex: 1;
+  flex: 1;
 }
 
 /*  Todo list */
 .todo {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid #ddd;
-    transition: .3s;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  transition: 0.3s;
 }
 
 .todo h3 {
-    flex: 1;
-    font-size: 0.9rem;
+  flex: 1;
+  font-size: 0.9rem;
 }
 
 .todo button {
-    margin-left: 0.4rem;
+  margin-left: 0.4rem;
 }
 
 .done {
-    background-color: #395169;
+  background-color: #395169;
 }
 
 .done h3 {
-    color: #fff;
-    /*  Quando a linah passa pelo texto */
-    text-decoration: line-through;
-    font-style: italic;
+  color: #fff;
+  /*  Quando a linah passa pelo texto */
+  text-decoration: line-through;
+  font-style: italic;
 }
-
