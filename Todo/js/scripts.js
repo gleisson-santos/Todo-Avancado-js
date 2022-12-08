@@ -3,7 +3,7 @@ const todoForm = document.querySelector("#todo-form");
 const todoInput = document.querySelector("#todo-input");
 const todoList = document.querySelector("#todo-list");
 const editForm = document.querySelector("#edit-form");
-const editInput = document.querySelector("#edit-input");
+        const editInput = document.querySelector("#edit-input");
 const cancelEditiBtn = document.querySelector("#cancel-edit-btn");
 
 //Salvar na memoria para edição
@@ -83,6 +83,7 @@ todoForm.addEventListener("submit", (e) => {
 document.addEventListener("click", (e) => {
 
     const targetEl = e.target;
+    //Selecionar o elemento pai Div mais proximo
     const parentEl = targetEl.closest("div");
     let todoTitle;
 
@@ -93,6 +94,7 @@ document.addEventListener("click", (e) => {
 
     //Completrar tarefas
     if (targetEl.classList.contains("finish-todo")) {
+        //toggle serve para habilitar e/ou desabilitar a função
         parentEl.classList.toggle("done");
     }
     
@@ -112,6 +114,7 @@ document.addEventListener("click", (e) => {
 });
 
 cancelEditiBtn.addEventListener("click", (e) => {
+    //preventDefault par anão enviar formulario ao clicar no botão
     e.preventDefault();
 
     toggleForms();
