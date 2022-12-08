@@ -6,6 +6,9 @@ const editForm = document.querySelector("#edit-form");
 const editInput = document.querySelector("#edit-input");
 const cancelEditiBtn = document.querySelector("#cancel-edit-btn");
 
+//Salvar na memoria para edição
+let oldInputValue;
+
 //Funções
 const saveTodo = (text) => {
 
@@ -43,6 +46,24 @@ const saveTodo = (text) => {
     todoInput.focus();
 };
 
+//Esconder itens para a edição
+const toggleForms = () => {
+    editForm.classList.toggle("hide");
+    todoForm.classList.toggle("hide");
+    todoList.classList.toggle("hide");
+};
+
+const updateTodo = (text) => {
+    const todos = document.querySelectorAll(".todo")  ;
+    
+    todos.forEach((todo) => {
+        let todoTitle = todo.querySelector("h3");
+
+        if(todoTitle.innerText === oldInputValue) {
+            todoTitle.innerText = text;
+        }
+    });
+};
 
 //Eventos
 
@@ -63,22 +84,50 @@ document.addEventListener("click", (e) => {
 
     const targetEl = e.target;
     const parentEl = targetEl.closest("div");
+    let todoTitle;
+
+    //Salvar na memoria para edição
+    if (parentEl && parentEl.querySelector("h3")) {
+        todoTitle = parentEl.querySelector("h3").innerText;
+    }
 
     //Completrar tarefas
     if (targetEl.classList.contains("finish-todo")) {
-        parentEl.classList.toggle("done")
+        parentEl.classList.toggle("done");
     }
     
-    //Exluir tarefas
+    //Remove tarefas
     if(targetEl.classList.contains("remove-todo")) {
         parentEl.remove();
     }
 
-    //Exluir tarefas
+    //Editar tarefas
     if(targetEl.classList.contains("edit-todo")) {
-        console.log("Editou")
+        toggleForms();
+
+        //Salvar na memoria para edição
+        editInput.value =  todoTitle;
+        oldInputValue = todoTitle;
+    }
+});
+
+cancelEditiBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    toggleForms();
+});
+
+editForm.addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    const editInputValue = editInput.value
+
+    if(editInputValue) {
+        // atualizar
+        updateTodo(editInputValue)
     }
 
-
+    toggleForms();
 
 });
