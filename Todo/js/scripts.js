@@ -68,6 +68,7 @@ const updateTodo = (text) => {
   });
 };
 
+//Função de busca
 const getSearchTodos = (search) => {
   const todos = document.querySelectorAll('.todo');
 
@@ -79,22 +80,42 @@ const getSearchTodos = (search) => {
 
     todo.style.display = 'flex';
 
+    //Verficar todos que não inclue o search
     if (!todoTitle.includes(normalizedSearch)) {
+      //chamada de classe em css no java
       todo.style.display = 'none';
     }
   });
 };
 
-const filterTodos = (filtervalue) => {
-  const todos = document.querySelector('.todo');
+const filterTodos = (filterValue) => {
+  const todos = document.querySelectorAll('.todo');
 
-  switch (filtervalue) {
+  switch (filterValue) {
+    //Todos
     case 'all':
       todos.forEach((todo) => (todo.style.display = 'flex'));
       break;
 
+    //feito
     case 'done':
-      todos.forEach((todo) => todo.classList.contains('done'));
+      todos.forEach((todo) =>
+        todo.classList.contains('done')
+          ? (todo.style.display = 'flex')
+          : (todo.style.display = 'none'),
+      );
+      break;
+
+    //A fazer
+    case 'todo':
+      todos.forEach((todo) =>
+        !todo.classList.contains('done')
+          ? (todo.style.display = 'flex')
+          : (todo.style.display = 'none'),
+      );
+      break;
+
+    default:
       break;
   }
 };
@@ -176,13 +197,14 @@ searchInput.addEventListener('keyup', (e) => {
 eraseBtn.addEventListener('click', (e) => {
   e.preventDefault();
 
+  //Zerar o campo de pesquisa value
   searchInput.value = '';
 
   searchInput.dispatchEvent(new Event('keyup'));
 });
 
 filterBtn.addEventListener('change', (e) => {
-  const filtervalue = e.target.value;
+  const filterValue = e.target.value;
 
-  filterTodos(filtervalue);
+  filterTodos(filterValue);
 });
