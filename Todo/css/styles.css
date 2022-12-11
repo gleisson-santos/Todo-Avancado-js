@@ -14,18 +14,18 @@ html {
 }
 
 body {
-  background-image: url('../image/bg.jpg');
+  background-image: url('../image/todo2.jpg');
   background-position: center;
   /* Adaptação da imagem a tela */
   background-size: cover;
 }
 
 button {
-  background-color: #fdfdfd;
+  background-color: #dfdfdf;
   color: #102f5e;
-  border: 2px solid#102f5e;
+  border: none;
   padding: 0.3rem 0.6rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -60,9 +60,10 @@ select {
 
 /*  Todo header */
 .todo-container {
-  max-width: 450px;
+  max-width: 650px;
   margin: 3rem auto;
-  background-color: #fdfdfd;
+  background-color: #ececec;
+
   padding: 1.5rem;
   border-radius: 15px;
 }
@@ -93,6 +94,12 @@ select {
 
 .form-control input {
   margin-right: 0.3rem;
+  width: 50%;
+}
+
+.form-control input[type='date'],
+.form-control #todo-criador {
+  width: 20%;
 }
 
 #cancel-edit-btn {
@@ -158,7 +165,7 @@ select {
 }
 
 .done {
-  background-color: #395169;
+  background-color: #50a56c;
 }
 
 .done h3 {

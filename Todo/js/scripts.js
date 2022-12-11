@@ -1,6 +1,10 @@
 // Seleção de elementos
 const todoForm = document.querySelector('#todo-form');
 const todoInput = document.querySelector('#todo-input');
+
+const todoDate = document.querySelector('#todo-date');
+const todoCriador = document.querySelector('#todo-criador');
+
 const todoList = document.querySelector('#todo-list');
 const editForm = document.querySelector('#edit-form');
 const editInput = document.querySelector('#edit-input');
@@ -39,7 +43,7 @@ const saveTodo = (text, done = 0, save = 1) => {
   deletBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
   todo.appendChild(deletBtn);
 
-  // utiliznado dados da localStorage
+  // utilizando dados da localStorage
   if (done) {
     todo.classList.add('done');
   }
@@ -72,6 +76,8 @@ const updateTodo = (text) => {
 
     if (todoTitle.innerText === oldInputValue) {
       todoTitle.innerText = text;
+
+      updateTodoLocalStorage(oldInputValue, text);
     }
   });
 };
@@ -133,11 +139,13 @@ todoForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const inputValue = todoInput.value;
+  const inputValue2 = todoDate.value;
+  const inputValue3 = todoCriador.value;
 
-  if (inputValue) {
+  if ((inputValue, inputValue2, inputValue3)) {
     console.log(inputValue);
     // Salvar o todo
-    saveTodo(inputValue);
+    saveTodo(inputValue2.concat(' - ', inputValue3, ': ', inputValue));
   }
 });
 
@@ -156,11 +164,15 @@ document.addEventListener('click', (e) => {
   if (targetEl.classList.contains('finish-todo')) {
     //toggle serve para habilitar e/ou desabilitar a função
     parentEl.classList.toggle('done');
+
+    updateTodoStatusLocalStorage(todoTitle);
   }
 
   //Remove tarefas
   if (targetEl.classList.contains('remove-todo')) {
     parentEl.remove();
+
+    removeTodoLocalStorage(todoTitle);
   }
 
   //Editar tarefas
@@ -224,6 +236,14 @@ const getTodosLocalStorage = () => {
   return todos;
 };
 
+const loadTodos = () => {
+  const todos = getTodosLocalStorage();
+
+  todos.forEach((todo) => {
+    saveTodo(todo.text, todo.done, 0);
+  });
+};
+
 const saveTodoLocalStorage = (todo) => {
   const todos = getTodosLocalStorage();
 
@@ -231,3 +251,33 @@ const saveTodoLocalStorage = (todo) => {
 
   localStorage.setItem('todos', JSON.stringify(todos));
 };
+
+const removeTodoLocalStorage = (todoText) => {
+  const todos = getTodosLocalStorage();
+
+  const filterTodos = todos.filter((todo) => todo.text !== todoText);
+
+  localStorage.setItem('todos', JSON.stringify(filterTodos));
+};
+
+const updateTodoStatusLocalStorage = (todoText) => {
+  const todos = getTodosLocalStorage();
+
+  todos.map((todo) =>
+    todo.text === todoText ? (todo.done = !todo.done) : null,
+  );
+
+  localStorage.setItem('todos', JSON.stringify(todos));
+};
+
+const updateTodoLocalStorage = (todoOldText, todoNewText) => {
+  const todos = getTodosLocalStorage();
+
+  todos.map((todo) =>
+    todo.text === todoOldText ? (todo.text = todoNewText) : null,
+  );
+
+  localStorage.setItem('todos', JSON.stringify(todos));
+};
+
+loadTodos();
