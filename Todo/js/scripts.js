@@ -30,17 +30,18 @@ const saveTodo = (text, done = 0, save = 1) => {
   //Botões de Edição / Criar parte do HTML  em js
   const doneBtn = document.createElement('button');
   doneBtn.classList.add('finish-todo');
-  doneBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
+  // doneBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
+  doneBtn.innerHTML = ' <img src="image/verificar.png" alt="Executado" />';
   todo.appendChild(doneBtn);
 
   const editBtn = document.createElement('button');
   editBtn.classList.add('edit-todo');
-  editBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
+  editBtn.innerHTML = '<img src="image/editar.png" alt="Editar" />';
   todo.appendChild(editBtn);
 
   const deletBtn = document.createElement('button');
   deletBtn.classList.add('remove-todo');
-  deletBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+  deletBtn.innerHTML = '<img src="image/lixo.png" alt="Exluir" />';
   todo.appendChild(deletBtn);
 
   // utilizando dados da localStorage
@@ -56,8 +57,12 @@ const saveTodo = (text, done = 0, save = 1) => {
 
   //Deixa input vazio apos enviar o texto
   todoInput.value = '';
+  todoDate.value = '';
+  todoCriador.value = '';
   //Focar na caixa do input apos cadastrar
   todoInput.focus();
+  todoDate.focus();
+  todoCriador.focus();
 };
 
 //Esconder itens para a edição

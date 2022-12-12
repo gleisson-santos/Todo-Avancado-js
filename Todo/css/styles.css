@@ -1,4 +1,4 @@
-Todo/* Geral */
+/* Geral */
 * {
   padding: 0;
   margin: 0;
@@ -21,7 +21,6 @@ body {
 }
 
 button {
-  background-color: #dfdfdf;
   color: #102f5e;
   border: none;
   padding: 0.3rem 0.6rem;
@@ -33,16 +32,42 @@ button {
   transition: 0.4s;
 }
 
-button:hover {
-  background-color: #102f5e;
-  color: #fff;
+#todo-list img {
+  width: 23px;
+  height: 23px;
 }
 
-button:hover > i {
-  color: #fff;
+.form-control img {
+  width: 30px;
+  height: 30px;
 }
 
-button i {
+#search img {
+  width: 30px;
+  height: 30px;
+}
+
+.finish-todo:hover {
+  background-color: #50a56c;
+  color: #fff;
+  border-radius: 20%;
+}
+.edit-todo:hover {
+  background-color: #ccc;
+  color: #fff;
+  border-radius: 20%;
+}
+.remove-todo:hover {
+  background-color: coral;
+  color: #fff;
+  border-radius: 20%;
+}
+
+/* button:hover > img {
+  color: #fff;
+} */
+
+button img {
   color: #102f5e;
   font-weight: bold;
   /*  Desabilitar eventos do icone */
@@ -94,12 +119,12 @@ select {
 
 .form-control input {
   margin-right: 0.3rem;
-  width: 50%;
+  width: 80%;
 }
 
 .form-control input[type='date'],
 .form-control #todo-criador {
-  width: 20%;
+  width: 32%;
 }
 
 #cancel-edit-btn {
@@ -150,7 +175,7 @@ select {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 1rem;
+  padding: 0.4rem;
   border-bottom: 1px solid #ddd;
   transition: 0.3s;
 }
@@ -173,4 +198,31 @@ select {
   /*  Quando a linah passa pelo texto */
   text-decoration: line-through;
   font-style: italic;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer h3 {
+  font-size: 14px;
+  padding: 0.5rem;
+}
+.foo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #cccc;
+}
+
+.foo a {
+  padding: 0.3rem;
+  font-size: 20px;
+}
+
+.foo a:hover {
+  border: 2px solid rgb(255, 240, 31);
+  background-color: rgb(255, 240, 31);
 }
