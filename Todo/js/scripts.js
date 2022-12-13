@@ -3,6 +3,7 @@ const todoForm = document.querySelector('#todo-form');
 const todoInput = document.querySelector('#todo-input');
 
 const todoDate = document.querySelector('#todo-date');
+
 const todoCriador = document.querySelector('#todo-criador');
 
 const todoList = document.querySelector('#todo-list');
@@ -140,6 +141,7 @@ const filterTodos = (filterValue) => {
 };
 
 //Eventos
+
 todoForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
